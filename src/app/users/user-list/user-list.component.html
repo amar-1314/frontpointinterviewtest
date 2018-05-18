@@ -1,0 +1,21 @@
+<h3 xmlns="">User Listing</h3>
+<div class="row">
+
+  <div class="col-md-1 h5">#</div>
+  <div class="col-md-3 h5">First Name</div>
+  <div class="col-md-3 h5">Last Name</div>
+  <div class="col-md-3 h5">Office</div>
+  <div>
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let user of userListArray; index as index">
+        <div class="row">
+          <div class="col-md-1"><strong>{{index+1}}</strong></div>
+          <div class="col-md-3 text-ellipsis" id="item">{{user.firstName}}</div>
+          <div class="col-md-3 text-ellipsis">{{user.lastName}}</div>
+          <div class="col-md-3">{{user.office}}</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
