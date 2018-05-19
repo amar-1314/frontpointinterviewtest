@@ -9,3 +9,7 @@
   white-space: normal;
   height: auto;
 }
+
+.hover-cursor{
+  cursor: pointer;
+}

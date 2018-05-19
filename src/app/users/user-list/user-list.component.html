@@ -1,6 +1,8 @@
+<html>
+<body>
 <h3 xmlns="">User Listing</h3>
-<div class="row">
 
+<div class="row">
   <div class="col-md-1 h5">#</div>
   <div class="col-md-3 h5">First Name</div>
   <div class="col-md-3 h5">Last Name</div>
@@ -13,9 +15,21 @@
           <div class="col-md-3 text-ellipsis" id="item">{{user.firstName}}</div>
           <div class="col-md-3 text-ellipsis">{{user.lastName}}</div>
           <div class="col-md-3">{{user.office}}</div>
+          <div class="col-md-1">
+            <span class="hover-cursor text-dark">
+              <i class="fa fa-edit fa-1x"></i>
+            </span>
+          </div>
+          <div class="col-md-1">
+            <span class="hover-cursor text-danger">
+              <i class="fa fa-trash-o fa-1x" (click)="deleteUser(user.$key)"></i>
+            </span>
+          </div>
         </div>
       </li>
     </ul>
   </div>
 </div>
+</body>
+</html>
 

@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from '../service/user.service';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-user-list',
@@ -25,6 +26,11 @@ export class UserListComponent implements OnInit {
     });
   }
 
+  deleteUser($key: string) {
+    this.userService.deleteUser($key);
+  }
 
-
+  updateUser($key: string, user: NgForm) {
+    this.userService.updateUser($key, user.value);
+  }
 }

@@ -26,4 +26,17 @@ export class UserService {
 
 
   }
+
+  deleteUser($key: string) {
+    this.userList.remove($key);
+  }
+
+  updateUser($key: string, user: User) {
+    this.userList.update($key, {
+      firstName: user.firstName,
+      lastName: user.lastName,
+      office: user.office
+    });
+
+  }
 }
