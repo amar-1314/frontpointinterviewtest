@@ -31,8 +31,8 @@ export class UserService {
     this.userList.remove($key);
   }
 
-  updateUser($key: string, user: User) {
-    this.userList.update($key, {
+  updateUser(user: User) {
+    this.userList.update(user.$key, {
       firstName: user.firstName,
       lastName: user.lastName,
       office: user.office

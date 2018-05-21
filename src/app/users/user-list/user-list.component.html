@@ -1,35 +1,32 @@
-<html>
-<body>
 <h3 xmlns="">User Listing</h3>
-
-<div class="row">
-  <div class="col-md-1 h5">#</div>
-  <div class="col-md-3 h5">First Name</div>
-  <div class="col-md-3 h5">Last Name</div>
-  <div class="col-md-3 h5">Office</div>
-  <div>
-    <ul class="list-group">
-      <li class="list-group-item" *ngFor="let user of userListArray; index as index">
-        <div class="row">
-          <div class="col-md-1"><strong>{{index+1}}</strong></div>
-          <div class="col-md-3 text-ellipsis" id="item">{{user.firstName}}</div>
-          <div class="col-md-3 text-ellipsis">{{user.lastName}}</div>
-          <div class="col-md-3">{{user.office}}</div>
-          <div class="col-md-1">
-            <span class="hover-cursor text-dark">
-              <i class="fa fa-edit fa-1x"></i>
-            </span>
-          </div>
-          <div class="col-md-1">
-            <span class="hover-cursor text-danger">
-              <i class="fa fa-trash-o fa-1x" (click)="deleteUser(user.$key)"></i>
-            </span>
-          </div>
-        </div>
-      </li>
-    </ul>
-  </div>
-</div>
-</body>
-</html>
+<table class="ul-table">
+  <tr>
+    <td width="50px" class="h5">#</td>
+    <td class="h5">First Name</td>
+    <td class="h5">Last Name</td>
+    <td class="h5">Office</td>
+    <td class="h5">Actions</td>
+  </tr>
+</table>
+<table class="table table-sm table-hover ul-table">
+  <tr *ngIf="userListArray.length ==0">
+    <td class="text-center">No content</td>
+  </tr>
+  <tr class="ul-table" *ngFor="let user of userListArray index as index">
+    <td width="50px"><strong>{{index+1}}</strong></td>
+    <td>{{user.firstName}}</td>
+    <td>{{user.lastName}}</td>
+    <td>{{user.office}}</td>
+    <td width="25px">
+      <a class="btn" (click)="updateUser(user)">
+        <i class="fa fa-edit fa-1x"></i>
+      </a>
+    </td>
+    <td width="25px">
+      <a class="btn text-danger" (click)="deleteUser(user.$key)">
+        <i class="fa fa-trash fa-1x"></i>
+      </a>
+    </td>
+  </tr>
+</table>
 

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from '../service/user.service';
-import {NgForm} from '@angular/forms';
+import {User} from '../service/user.model';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-user-list',
@@ -12,7 +13,7 @@ import {NgForm} from '@angular/forms';
 export class UserListComponent implements OnInit {
   userListArray: any[];
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private toastr: ToastrService) {
   }
 
   ngOnInit() {
@@ -28,9 +29,11 @@ export class UserListComponent implements OnInit {
 
   deleteUser($key: string) {
     this.userService.deleteUser($key);
+    this.toastr.error('User deleted');
   }
 
-  updateUser($key: string, user: NgForm) {
-    this.userService.updateUser($key, user.value);
+  updateUser(user: User) {
+    this.userService.enteredUser = user;
+    this.userService.updateUser(user);
   }
 }
